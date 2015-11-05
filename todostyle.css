@@ -1,15 +1,16 @@
-/*
- * Globals
- */
 
-/* Links */
+@keyframes animatedBackground{
+  from{background-position: 0 0;}
+  to{background-position: 100% 0;}
+}
+
+
 a,
 a:focus,
 a:hover {
   color: #fff;
 }
 
-/* Custom default button */
 .btn-default,
 .btn-default:hover,
 .btn-default:focus {
@@ -19,39 +20,36 @@ a:hover {
   border: 1px solid #fff;
 }
 
-/*
- * Base structure
- */
+html,body {
+  background-image: url(skyscraper.jpg);
+  background-position: 0px 0px;
+  background-repeat: repeat-x 100%;
+  background-attachment: fixed;
 
-html,
-body {
-  height: 100%;
- background-image:url(480369.png);
-
-   background-repeat:no-repeat;
-
-   background-size:cover;
-
-}
-body {
-  color: #fff;
+  animation: animatedBackground 40s linear infinite;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
 
 li input[type="checkbox"] {
-  width: 10px;
+  width: 30px;
+  height: 30px;
 }
 
 li {
   font-size: 2em;
   padding: 40px;
-  background: #6E6EFF;
+  color: white;
+  background: #000000;
   text-align: left;
   list-style-type: none;
   margin-left: 0px;
   padding-left: 0px;
+  font-family: courier;
   width: 90%;
+  border-radius: 4px;
+  moz-border-radius: 4px;
+  webkit-border-radius: 4px;
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -71,26 +69,30 @@ li {
   margin-right: auto;
   margin-left: auto;
 }
+.cover-heading {
+  margin-right: auto;
+  margin-left: auto;
+  color: white;
+}
 .add-input {
   width: 60%;
   height: 20px;
   float: left;
-  border: none;
+  color:white;
   padding: 40px 0;
   font-size: 2em;
-  background: #29F4E3;
-  font-family: megrim, fantasy;
+  background: #000000;
+  font-family: courier;
   text-indent: 55px;
 }
 .container{
-  height:190%;
-  width:190%;
-  background: linear-gradient(
-    to right, 
-    #ff9e2c 50%, 
-    #b6701e 50%, 
-    #b6701e 100%
-  );
+  border-radius: 4px;
+  moz-border-radius: 4px;
+  webkit-border-radius: 4px;
+  height:15%;
+  width:15%;
+  float:right;
+  background: black;
 }
 
 .done-true {
@@ -99,14 +101,31 @@ li {
 }
 
 
+
+.logout {
+  width: 150px;
+  border-width:1px;
+  background: #000000;
+  padding: 0;
+  color:white;
+  height: 50px;
+  border-radius: 4px;
+  moz-border-radius: 4px;
+  webkit-border-radius: 4px;
+}
+
 .add-btn {
+  color:black;
+  border-radius: 4px;
+  moz-border-radius: 4px;
+  webkit-border-radius: 4px;
   width: 40%;
   border: none;
-  background: #29F4E3;
+  background: #ffffff;
   padding: 0;
-  height: 100px;
+  height: 80px;
   h2 {
-   background: #29F4E3;
+   background: #000000;
    padding: 0;
    font-size: 4em;
    font-family: megrim, fantasy;
@@ -216,8 +235,11 @@ li {
 }
 
 .todo-wrapper {
-  background: #55B6AE;
+  background: #A49867;
   width: 100%;
+  border-radius: 4px;
+  moz-border-radius: 4px;
+  webkit-border-radius: 4px;
 }
 
 @media (min-width: 992px) {
