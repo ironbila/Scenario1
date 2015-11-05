@@ -27,11 +27,13 @@
 			<form class="form-signin" method="post" action="todo/login" enctype="multipart/form-data">
 
 		    	{% csrf_token %}
+
+		    	{{form}}
 		        
-		        <p><label for="inputEmail" class="sr-only">Email address</label>{{ form.username }}</p>
+		        <!-- <p><label for="inputEmail" class="sr-only">Email address</label>{{ form.username }}</p>
 		        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
 		        <p><label for="inputPassword" class="sr-only">Password</label>{{ form.password }}</p>
-		        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+		        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required> -->
 		       
 		        <button class="btn btn-lg btn-info btn-block" type="submit" value="login">Login</button>
 
@@ -45,9 +47,6 @@
         		</form>
 
 	    	</form>
-
-	    	
-	    	
 
 	    </div>
 
