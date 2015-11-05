@@ -19,7 +19,6 @@ a:hover {
   border: 1px solid #fff;
 }
 
-
 /*
  * Base structure
  */
@@ -27,12 +26,32 @@ a:hover {
 html,
 body {
   height: 100%;
-  background-color: #333;
+ background-image:url(480369.png);
+
+   background-repeat:no-repeat;
+
+   background-size:cover;
+
 }
 body {
   color: #fff;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+
+li input[type="checkbox"] {
+  width: 10px;
+}
+
+li {
+  font-size: 2em;
+  padding: 40px;
+  background: #6E6EFF;
+  text-align: left;
+  list-style-type: none;
+  margin-left: 0px;
+  padding-left: 0px;
+  width: 90%;
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -52,16 +71,47 @@ body {
   margin-right: auto;
   margin-left: auto;
 }
-
+.add-input {
+  width: 60%;
+  height: 20px;
+  float: left;
+  border: none;
+  padding: 40px 0;
+  font-size: 2em;
+  background: #29F4E3;
+  font-family: megrim, fantasy;
+  text-indent: 55px;
+}
 .container{
-  height:250px;
-  width:90%;
+  height:190%;
+  width:190%;
   background: linear-gradient(
     to right, 
     #ff9e2c 50%, 
     #b6701e 50%, 
     #b6701e 100%
   );
+}
+
+.done-true {
+  text-decoration: line-through;
+  color: #ddd;
+}
+
+
+.add-btn {
+  width: 40%;
+  border: none;
+  background: #29F4E3;
+  padding: 0;
+  height: 100px;
+  h2 {
+   background: #29F4E3;
+   padding: 0;
+   font-size: 4em;
+   font-family: megrim, fantasy;
+   color: #333;
+  }
 }
 
 /* Padding for spacing */
@@ -76,6 +126,10 @@ body {
 .masthead-brand {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+.massiveno {
+  font-family: vast-shadow, sans-serif;
+  font-size: 16px;
 }
 
 .masthead-nav > li {
@@ -115,10 +169,6 @@ body {
   }
 }
 
-
-/*
- * Cover
- */
 
 .cover {
   padding: 0 20px;
@@ -163,6 +213,11 @@ body {
   .cover-container {
     width: 100%; /* Must be percentage or pixels for horizontal alignment */
   }
+}
+
+.todo-wrapper {
+  background: #55B6AE;
+  width: 100%;
 }
 
 @media (min-width: 992px) {
