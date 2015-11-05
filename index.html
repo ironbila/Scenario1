@@ -18,21 +18,36 @@
 
 		<h1>To Do List</h1>
 
+		{% if form.has_errors %}
+			<p>Your username and password didn't match. Please try again.</p>
+		{% endif %}
+
 		<div class="container">
 
-	      <form class="form-signin">
-	        
-	        <label for="inputEmail" class="sr-only">Email address</label>
-	        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-	        <label for="inputPassword" class="sr-only">Password</label>
-	        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-	       
-	        <button class="btn btn-lg btn-info btn-block" type="submit">Sign in</button>
+			<form class="form-signin" method="post" action="todo/login" enctype="multipart/form-data">
 
-	        <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+		    	{% csrf_token %}
+		        
+		        <p><label for="inputEmail" class="sr-only">Email address</label>{{ form.username }}</p>
+		        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+		        <p><label for="inputPassword" class="sr-only">Password</label>{{ form.password }}</p>
+		        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+		       
+		        <button class="btn btn-lg btn-info btn-block" type="submit" value="login">Login</button>
 
+		        <form action="/accounts/register/" method="post">
 
-	      </form>
+		    	 	{% csrf_token %}
+	            	{{form}}
+
+	            	<button class="btn btn-lg btn-primary btn-block" type="submit" value="register">Register</button>
+
+        		</form>
+
+	    	</form>
+
+	    	
+	    	
 
 	    </div>
 
