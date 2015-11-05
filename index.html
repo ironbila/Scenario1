@@ -24,7 +24,7 @@
 
 		<div class="container">
 
-			<form class="form-signin" method="post" action="todo/login" enctype="multipart/form-data">
+			<form class="form-signin" method="post" action="/todo/login" enctype="multipart/form-data">
 
 		    	{% csrf_token %}
 
@@ -37,7 +37,13 @@
 		       
 		        <button class="btn btn-lg btn-info btn-block" type="submit" value="login">Login</button>
 
-		        <form action="/accounts/register/" method="post">
+		        {% if user.is_authenticated %}
+				    <a href="todolist.html">To Do List</a>
+				{% else %}
+				    <p>Your username and password didn't match. Please try again.</p>
+				{% endif %}
+
+		        <form action="/todo/register/" method="post">
 
 		    	 	{% csrf_token %}
 	            	{{form}}
