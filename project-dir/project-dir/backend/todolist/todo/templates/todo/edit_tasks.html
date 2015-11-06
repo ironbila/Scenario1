@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block maincontent %}
+<div class="page-header">
+	<h3>Edit this Task</h3>
+</div>
+
+<div class="form-container">
+
+	<form action="/todolist/changeTask/{{task.id}}/" method="POST" class="form-horizontal">
+		{% csrf_token %}
+		<div class="form-group">
+			<label for="collectionselect" class=" col-sm-2 control-label">Collection</label>
+			<div class="col-sm-10">
+				<select name="collection" id="collectionselect">
+					{% for collection in collections %}
+					<option value="{{collection.name}}">{{collection.name}}</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="name" class=" col-sm-2 control-label">Task Name:</label>
+			<div class="col-sm-10">
+				<input type="text" class="add-margin form-control" Valid="Name" name="name" id="name"></div>
+		</div>
+
+		<div class="form-group">
+			<label for="desc" class=" col-sm-2 control-label">Description:</label>
+			<div class="col-sm-10">
+				<input type="text" class="add-margin form-control" placeholder="description" name="description" id="desc"></div>
+		</div>
+
+		<input type="hidden" name="collection" value="{{collection.id}}">
+
+		<div class="form-group">
+			<label for="completed" class=" col-sm-2 control-label">Completed:</label>
+			<div class="col-sm-10">
+				<input type="checkbox" class="add-margin form-control" value="{{task.completed}}" name="completed" id="completed"></div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn btn-default">Edit Task</button>
+			</div>
+		</div>
+
+	</form>
+</div>
+{% endblock %}

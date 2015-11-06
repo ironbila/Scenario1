@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block maincontent %}
+
+<div class="page-header">
+  <h3>Please fill out all the boxes below: </h3>
+</div>
+<div class="form-container">
+  <form action="/users/register" method="POST" class="form-horizontal">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="FirstName" class="col-sm-2 control-label">First Name</label>
+      <div class="col-sm-10">
+        <input class="add-margin form-control" type="text" name="first_name" id="FirstName"></div>
+    </div>
+
+    <div class="form-group">
+      <label for="LasttName" class="col-sm-2 control-label">Last Name</label>
+      <div class="col-sm-10">
+        <input class="add-margin form-control" type="text" name="last_name" id="LastName"></div>
+    </div>
+
+    <div class="form-group">
+      <label for="UserName" class="col-sm-2 control-label">Username</label>
+      <div class="col-sm-10">
+        <input class="add-margin form-control" type="text" name="username" id="UserName"></div>
+    </div>
+
+    <div class="form-group">
+      <label for="Pass1" class="col-sm-2 control-label">Enter Password</label>
+      <div class="col-sm-10">
+        <input class="add-margin form-control" type="password" name="password1" id="Pass1"></div>
+    </div>
+
+    <div class="form-group">
+      <label for="Pass2" class="col-sm-2 control-label">Re-Enter Password</label>
+      <div class="col-sm-10">
+        <input class="add-margin form-control" type="password" name="password2" id="Pass2"></div>
+    </div>
+
+    <div class="form-group">
+      <label for="Email" class="col-sm-2 control-label">Email Address</label>
+      <div class="col-sm-10">
+        <input class="add-margin form-control" type="email" name="email" id="Email"></div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button class="btn btn-default" type="submit">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

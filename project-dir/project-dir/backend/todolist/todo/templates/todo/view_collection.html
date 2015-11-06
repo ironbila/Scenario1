@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block maincontent %}
+<div class="page-header">
+	<h3>Here are all the collections from the database</h3>
+</div>
+
+<p class="lead">You can get specific attributes using Collection</p>
+
+<ul class="list-group">
+	{% for collection in collections %}
+	<li class="list-group-item">
+		<h4 class="list-group-item-heading">{{collection.name}}</h4>
+		<p class="list-group-item-text">{{collection.description}}</p>
+	</li>
+	{% endfor %}
+
+</ul>
+
+{% endblock %}

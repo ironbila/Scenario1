@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+
+{% block maincontent %}
+<div class="main-container">
+	{% if not request.user.is_authenticated %}
+	<div class="page-header">
+		<h3>Welcome to the "To-Do-List"</h3>
+	</div>
+
+	<p class="lead">Begin by signing up</p>
+	<p class="lead">Login or Register</p>
+	<p>(on mobile view, click the menu icon)</p>
+	{% else %}
+	<div class="page-header">
+		<h3 class="">Your collections</h3>
+		<a href="/todolist/newCollection">
+			Add a new Collection
+			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+		</a>
+	</div>
+
+	<div class="collection-container">
+		{% for collection in collections %}
+		<div class="panel panel-default">
+
+			<div class="panel-heading">
+				<div class="lead">{{collection.name}}</div>
+				<a href="/todolist/deleteCollection/{{collection.id}}/" title="">
+					Delete
+					<span class="glyphicon glyphicon-remove"></span>
+				</a>
+				<a href="/todolist/editCollection/{{collection.id}}/" title="">
+					Edit
+					<span class="glyphicon glyphicon-pencil"></span>
+				</a>
+			</div>
+			<div class="task-container panel-body">
+				<a href="/todolist/addTask/{{collection.id}}/">
+					Add a new Task
+					<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+				</a>
+				<ul class="list-group">
+					{%for task in tasks %}
+
+					{% if task.collection == collection %}
+					<li class="list-group-item">
+						<div class="col-md-10">
+							<h4 class="list-group-item-heading">{{task.name}}</h4>
+							<p class="list-group-item-text">{{task.description}}</p>
+
+						</div>
+						{% if task.completed %}
+						<div>
+							Completed
+							<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+						</div>
+						<a href="/todolist/completeTask/{{task.id}}/">Mark task as incomplete</a>
+						{% else %}
+						<div>
+							Remaining
+							<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+						</div>
+
+						<a href="/todolist/completeTask/{{task.id}}/">Mark task as complete</a>
+						{% endif %}
+						<a href="/todolist/editTask/{{task.id}}/">
+							Edit
+							<span class="glyphicon glyphicon-pencil"></span>
+						</a>
+						<a href="/todolist/deleteTask/{{task.id}}/">
+						Delete
+						<span class="glyphicon glyphicon-remove"></span>
+						</a>
+					</li>
+					{% endif %} 
+
+				{% endfor %}
+				</ul>
+
+			</div>
+		</div>
+		{% endfor %} 
+
+	{% endif %}
+	</div>
+</div>
+{% endblock %}
