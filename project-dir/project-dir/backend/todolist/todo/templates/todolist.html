@@ -5,7 +5,7 @@
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="todostyle.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-    <script type="text/javascript" src="addedlist.js"></script>   
+    <script type="text/javascript" src="../static/addedlist.js"></script>   
   
 	</head>
 
@@ -23,7 +23,7 @@
               <h1 class="cover-heading">TO DO LIST</h1>
                  <div class="todo-wrapper" ng-controller="TodoCtrl">
                   <br>
-                  <h2>You have {{totalAmount()}} tasks to do today</h2>
+                  <!--<h2>You have {{totalAmount()}} tasks to do today</h2>-->
                     <ul>
                       <li ng-repeat="todo in todos">
                         <input type="checkbox" ng-model="todo.done"/>

@@ -8,22 +8,22 @@ from django.contrib.auth import logout
 from django.contrib.auth.models import User
 
 def register_user(request):
-    if request.method == 'POST':
-        form = RegForm(request.POST)
-        if form.is_valid():
-            print 'form is valid! here'
-            form.save()
-            return redirect('login')
-        else:
-            print form.errors
+    # if request.method == 'POST':
+    #     form = RegForm(request.POST)
+    #     if form.is_valid():
+    #         print 'form is valid! here'
+    #         form.save()
+    #         return redirect('login')
+    #     else:
+    #         print form.errors
     args = {}
     args.update(csrf(request))
     args['form'] = RegForm()
-    return render_to_response('todo/register.html',args)
+    return render_to_response('register.html',args)
 
 
 def render_login(request):
-    return render(request,'todo/login.html')
+    return render(request,'todolist.html')
 
 def login(request):
     c = {}
@@ -41,7 +41,7 @@ def auth_view(request):
         auth.login(request,user)
         return redirect('index')
     else:
-        return redirect('login')
+        return redirect('register')
 
 def loggedin(request):
     return render_to_response( 'societal/loggedin.html',

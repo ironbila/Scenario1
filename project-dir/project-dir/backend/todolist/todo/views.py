@@ -15,7 +15,7 @@ def index(request):
     response = {}
     if request.user.is_authenticated():
         response = get_list_and_todos(request)
-    return render(request,'todo/index.html',response)
+    return render(request,'index.html',response)
 
 
 # HTML VIEWS
@@ -212,4 +212,4 @@ def edit_todo(request,id):
 
 def check_user(request):
     if not request.user.is_authenticated():
-        return redirect('index')
+        return redirect('index.html')
