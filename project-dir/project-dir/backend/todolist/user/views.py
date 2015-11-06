@@ -19,7 +19,7 @@ def register_user(request):
     args = {}
     args.update(csrf(request))
     args['form'] = RegForm()
-    return render_to_response('register.html',args)
+    return render_to_response('todo/register.html',args)
 
 
 def render_login(request):
