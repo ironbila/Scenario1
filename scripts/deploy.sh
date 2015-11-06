@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # cloning the git hub repository
-git clone https://github.com/ironbila/django-rep
+git clone https://github.com/ironbila/Scenario1
 
 
 # stop apache server
@@ -26,7 +26,7 @@ sudo chown :apache /var/www/html/project-dir/backend
 sudo systemctl start httpd
 
 # delete the repo
-sudo rm -rf django-rep
+sudo rm -rf Scenario1
 
 
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git clone https://github.com/ironbila/django-rep
+git clone https://github.com/ironbila/Scenario1
 
 cd django-rep/utils/
 
