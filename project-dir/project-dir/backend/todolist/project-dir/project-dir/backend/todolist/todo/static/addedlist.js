@@ -3,9 +3,9 @@ function TodoCtrl($scope) {
   $scope.todos = [
   ];
   
-  $scope.totalAmount = function () {
-    return $scope.todos.length;
-  };
+ // $scope.totalAmount = function () {
+   // return $scope.todos.length;
+  //};
   
   
   $scope.addstuff = function () {

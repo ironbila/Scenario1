@@ -19,7 +19,7 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^todolist/', include('todo.urls')),
-    url(r'^$', include('todo.urls')),
+    url(r'', include('todo.urls')),
     url(r'^/$', include('todo.urls')),
     url(r'^user/', include('user.urls')),
 ]

@@ -101,7 +101,7 @@ def create_todo(request,id):
     if request.method == "GET":
         list = List.objects.get(pk=id)
         response = {'list':list}
-        return render(request, 'todo/add_tasks.html',response)
+        return render(request, 'index.html',response)
 
     if request.method == 'POST':
         try:
@@ -116,6 +116,7 @@ def create_todo(request,id):
                 print form.errors
         except Exception:
             print "Something went wrong"
+        return render(request, 'index.html')
 
 def complete_todo(request,id):
     print "setting todo to complete/incomplete"
@@ -126,7 +127,7 @@ def complete_todo(request,id):
         todo.completed = True
     todo.save()
     print todo.completed
-    return redirect('index')
+    return redirect('index.html')
 
 ## Deleting lists and todos
 
