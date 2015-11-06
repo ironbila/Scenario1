@@ -9,7 +9,6 @@ body {
   background-position: 0px 0px;
   background-repeat: repeat-x 100%;
   background-attachment: fixed;
-
   animation: animatedBackground 40s linear infinite;
 }
 
