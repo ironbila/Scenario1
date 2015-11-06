@@ -13,24 +13,27 @@ def register_user(request):
         if form.is_valid():
             print 'form is valid! here'
             form.save()
-            return redirect('login')
+            return render(request,'index.html')
         else:
             print form.errors
     args = {}
     args.update(csrf(request))
     args['form'] = RegForm()
-    return render_to_response('todo/register.html',args)
+    return render_to_response('register.html',args)
 
 
 def render_login(request):
-    return render(request,'todo/login.html')
+    return render(request,'index.html')
+
+def load_register(request):
+    return render(request,'register.html')
 
 def login(request):
     c = {}
     c.update(csrf(request))
     if not request.user.is_authenticated():
         return render_login(request)
-    return redirect('index')
+    return redirect('register.html')
 
 def auth_view(request):
     username = request.POST.get('username','')
@@ -39,9 +42,9 @@ def auth_view(request):
 
     if user is not None:
         auth.login(request,user)
-        return redirect('index')
+        return redirect('index.html')
     else:
-        return redirect('login')
+        return redirect('index')
 
 def loggedin(request):
     return render_to_response( 'societal/loggedin.html',

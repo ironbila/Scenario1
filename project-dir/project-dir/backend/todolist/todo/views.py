@@ -15,7 +15,7 @@ def index(request):
     response = {}
     if request.user.is_authenticated():
         response = get_list_and_todos(request)
-    return render(request,'todo/index.html',response)
+    return render(request,'index.html',response)
 
 
 # HTML VIEWS
@@ -79,9 +79,9 @@ def get_todos(request):
 ## Creating list and todo views
 
 
-def create_list(request):
-    if request.method == 'POST':
-        print "Heard a post request"
+# def create_list(request):
+#     if request.method == 'POST':
+#         print "Heard a post request"
 
 def create_list(request):
     if request.method == 'POST':
@@ -90,18 +90,19 @@ def create_list(request):
             if form.is_valid():
                 print "Able to create a new list"
                 form.save()
-                return index(request)
+                return render(request, 'index.html')
             else:
                 print form.errors
         except Exception:
             print "Something went wrong"
+            return render(request, 'index.html')
 
 
 def create_todo(request,id):
     if request.method == "GET":
         list = List.objects.get(pk=id)
         response = {'list':list}
-        return render(request, 'todo/add_tasks.html',response)
+        return render(request, 'index.html',response)
 
     if request.method == 'POST':
         try:
@@ -116,6 +117,7 @@ def create_todo(request,id):
                 print form.errors
         except Exception:
             print "Something went wrong"
+        return render(request, 'index.html')
 
 def complete_todo(request,id):
     print "setting todo to complete/incomplete"
@@ -126,7 +128,7 @@ def complete_todo(request,id):
         todo.completed = True
     todo.save()
     print todo.completed
-    return redirect('index')
+    return redirect('index.html')
 
 ## Deleting lists and todos
 
@@ -212,4 +214,4 @@ def edit_todo(request,id):
 
 def check_user(request):
     if not request.user.is_authenticated():
-        return redirect('index')
+        return redirect('index.html')
