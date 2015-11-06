@@ -1,6 +1,6 @@
 #!/bin/bash
 
-directory='/var/www/html/project-dir/backend'
+directory='/var/www/html/project-dir/backend/todolist'
 backupfile="dbbackup-$(date "+%Y%m%d%H%M").bak"
 
 echo "storing backup database in" $backupfile

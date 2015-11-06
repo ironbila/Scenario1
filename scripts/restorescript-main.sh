@@ -1,8 +1,8 @@
 #!/bin/bash
 
-directory='/var/www/html/project-dir/backend'
+directory='/var/www/html/project-dir/backend/todolist'
 
-cd Documents/backup/
+cd /home/localuser/Documents/backup/
 backupfile=`ls -r dbbackup*.bak | sort -n -t _ -k 2 | tail -1`
 
 echo "restoring database"
